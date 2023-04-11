@@ -1,0 +1,67 @@
+// Header
+
+header {
+    .nav {
+        .nav-link {
+            font-size: $font-size-sm;
+            font-weight: $font-weight-base;
+            color: black;
+
+            &.active {
+                color: $primary;
+            }
+
+            &:hover {
+                color: $secondary;
+            }
+        }
+    }
+}
+
+.navbar-light {
+    .nav-link {
+        &.active {
+            font-weight: 500;
+        }
+    }
+}
+
+
+.icon-not-found {
+    
+    height: 270px;
+    width: 100%;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.slick-slide{
+    div{
+        margin-right: 0.2rem;
+    }
+}
+
+// Customize forms style
+div:not(.form-floating) > .form-label{
+    font-weight: 500;
+}
+
+.form-help{
+    font-size: $font-size-sm;
+    margin-top: 0.5rem;
+    color: $gray-500;
+}

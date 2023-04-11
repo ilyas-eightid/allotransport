@@ -1,0 +1,7 @@
+.listing-card {
+    .card {
+        &:hover {
+            border-color: $warning !important;
+        }
+    }
+}
