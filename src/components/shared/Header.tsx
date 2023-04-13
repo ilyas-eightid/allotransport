@@ -1,19 +1,18 @@
 import Image from "next/image";
 import Navbar from "./Navbar";
-import { useEffect, useState } from "react";
 import Link from "next/link";
+import Button from "./Button";
 
 type props = {
-    Logo: string,
-    Menus: any[]
+    data: any
 }
 
-const Header = ({ Logo, Menus }: props) => {
+const Header = ({ data }: props) => {
 
     return (
         <>
             <Link className="logo d-flex align-items-center justify-content-center pt-3 d-md-none" href="/">
-                <Image alt="Allohonda - Annuaire des transports au Maroc" className="img-fluid" width="200" height="100" src={'http://127.0.0.1:1337' + Logo} />
+                <Image alt="Allohonda - Annuaire des transports au Maroc" className="img-fluid" width="200" height="100" src={'http://127.0.0.1:1337' + data.Logo.data.attributes.url} />
             </Link>
             <header className="bg-white border-bottom sticky-top py-2">
                 <nav className="navbar navbar-light navbar-expand-xl">
@@ -24,21 +23,16 @@ const Header = ({ Logo, Menus }: props) => {
                             <i className="bi bi-list"></i>
                         </button>
                         <Link className="logo d-none me-auto ms-3 d-md-block d-xl-none" href="/">
-                            <Image alt="Allohonda - Annuaire des transports au Maroc" className="img-fluid" width="200" height="100" src={'http://127.0.0.1:1337' + Logo} />
+                            <Image alt="Allohonda - Annuaire des transports au Maroc" className="img-fluid" width="200" height="100" src={'http://127.0.0.1:1337' + data.Logo.data.attributes.url} />
                         </Link>
                         <div className="collapse navbar-collapse">
                             <Link href="/" className="navbar-brand">
-                                <Image alt="Allohonda - Annuaire des transports au Maroc" className="img-fluid" width="200" height="100" src={'http://127.0.0.1:1337' + Logo} />
+                                <Image alt="Allohonda - Annuaire des transports au Maroc" className="img-fluid" width="200" height="100" src={'http://127.0.0.1:1337' + data.Logo.data.attributes.url} />
                             </Link>
-                            <Navbar Items={Menus} />
+                            <Navbar Items={data.Menu} />
                         </div>
                         <div className="text-end">
-
-                            <a className="btn btn-outline-primary me-2" href="{{ route('login') }}"
-                                title="{{ __('Accéder à votre compte') }}">Sign In</a>
-
-                            <a href="{{ route('register') }}" className="btn btn-warning"
-                                title="{{ __('Mettez votre service en ligne') }}">Sign Up</a>
+                            <Button data={data.Button} outline={false} />
                         </div>
                     </div>
                 </nav>
@@ -48,7 +42,7 @@ const Header = ({ Logo, Menus }: props) => {
                         <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div className="offcanvas-body">
-                        <Navbar Items={Menus} />
+                        <Navbar Items={data.Menu} />
                     </div>
                 </div>
             </header>

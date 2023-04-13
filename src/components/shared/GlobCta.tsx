@@ -1,17 +1,20 @@
 import { homeProps } from '@/interfaces/interface';
 import React from 'react'
 
+type props = {
+    data: any,
+}
 
 
-export default function GlobCta({ data }: homeProps) {
+export default function GlobCta({ data }: props) {
     return (
         <>
             <div className="topbar bg-primary py-5">
                 <div className="container">
                     <div className="d-block d-lg-flex justify-content-between align-items-center">
                         <div className="topbar-title">
-                            <h1 className="h5 text-white">{data.Page.Title}</h1>
-                            <p className="lead text-white">{data.Page.SubTitle}</p>
+                            <h1 className="h5 text-white">{data.Title}</h1>
+                            <p className="lead text-white">{data.SubTitle}</p>
                         </div>
                         <div>
                             <form action="listing.html">

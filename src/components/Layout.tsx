@@ -5,8 +5,11 @@ import { ReactNode } from "react";
 import { homeProps } from "@/interfaces/interface";
 
 
+type props = {
+    data: any
+}
 
-const Layout = ({ metas, children }: { metas: homeProps, children: ReactNode }) => {
+const Layout = ({ metas, children }: { metas: props, children: ReactNode }) => {
 
     return (
         <>
@@ -17,11 +20,11 @@ const Layout = ({ metas, children }: { metas: homeProps, children: ReactNode }) 
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-                <Header Logo={metas.data.Logo} Menus={metas.data.Menus} />
+                <Header data={metas.data.Navbar} />
 
                 {children}
 
-                <Footer />
+                <Footer data={metas.data.Footer} />
             </main>
         </>
     )

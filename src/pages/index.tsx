@@ -5,6 +5,7 @@ import client from "../../apollo-client";
 import HomeWrapper from '@/components/home/HomeWrapper';
 import { homeProps } from '@/interfaces/interface';
 import GlobalQuery from '@/queries/Global';
+import GetGloblProps from '@/functions/functions';
 
 
 const inter = Inter({ subsets: ['latin'] });
@@ -26,15 +27,9 @@ export async function getServerSideProps() {
     query: gql`${GlobalQuery}`,
   });
 
-
-  //console.log(data.layout.data.attributes.Navbar.Menu);
-
   return {
     props: {
-      data: {
-        Logo: data.layout.data.attributes.Navbar.Logo.data.attributes.url,
-        Menus: data.layout.data.attributes.Navbar.Menu,
-      }
+      data: GetGloblProps({ data }),
     },
   };
 }
