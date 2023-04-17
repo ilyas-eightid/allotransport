@@ -4,7 +4,7 @@ const Navbar = ({ Items }: { Items: any[] }) => {
 
     return (
         <>
-            <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                 {
 
                     Items.map((menu, index) => {

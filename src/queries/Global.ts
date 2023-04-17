@@ -54,6 +54,11 @@ query Layout {
           }
           Copyright
         }
+        Contact{
+          Icon
+          Title
+          Content
+        }
       }
     }
   }

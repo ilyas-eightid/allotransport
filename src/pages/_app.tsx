@@ -7,7 +7,7 @@ import { useEffect } from 'react'
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    import(__dirname + '/../../node_modules/bootstrap/dist/js/bootstrap')
+    require('bootstrap/dist/js/bootstrap')
   }, [])
 
   return (

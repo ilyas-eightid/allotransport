@@ -10,7 +10,7 @@ type props = {
 }
 
 const Footer = ({ data }: props) => {
-    console.log(data);
+    
     return (
         <>
             <footer className="bg-primary text-white pt-5">
@@ -33,9 +33,9 @@ const Footer = ({ data }: props) => {
                                 </p>
                                 <SocialLinks Items={data.SocialLinks} />
                             </div>
-                            <div className="col text-start text-lg-end">
+                            {/* <div className="col text-start text-lg-end">
                                 <Button data={data.Button} outline={true} />
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     <div className="d-block d-lg-flex justify-content-between">

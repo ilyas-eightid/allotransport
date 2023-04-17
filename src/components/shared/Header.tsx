@@ -31,9 +31,9 @@ const Header = ({ data }: props) => {
                             </Link>
                             <Navbar Items={data.Menu} />
                         </div>
-                        <div className="text-end">
+                        {/* <div className="text-end">
                             <Button data={data.Button} outline={false} />
-                        </div>
+                        </div> */}
                     </div>
                 </nav>
                 <div className="offcanvas offcanvas-start" id="menuMobileLabel" aria-labelledby="menuMobileLabel">

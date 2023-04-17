@@ -153,5 +153,10 @@ $navbar-light-active-color: $warning;
 
 
 @import '/node_modules/bootstrap/scss/bootstrap.scss';
+@import '~bootstrap-icons/font/bootstrap-icons';
+@import "~slick-carousel/slick/slick.scss";
+@import "~slick-carousel/slick/slick-theme.scss";
+@import "~leaflet/dist/leaflet.css";
 @import '../styles/scss/navbar.module.scss';
 @import '../styles/scss/listing.module.scss';
+@import '../styles/scss/featured.module.scss';

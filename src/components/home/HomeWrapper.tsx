@@ -11,10 +11,11 @@ export default function HomeWrapper({ }: Props) {
     return (
         <>
             <Hero />
-            <Statistic />
-            <Signup />
             <Transports />
+            <Signup />
+            <Statistic />
             <Privacypolicy />
+
         </>
     )
 }

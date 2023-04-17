@@ -7,14 +7,9 @@ type Props = {
 
 export default function Listing({ data }: Props) {
 
-    
-
     return (
         <>
-            <div className="heading mb-4">
-                <h2 className="h5">All Merchand Transports Activities in Morocco</h2>
-                <p>Showing 10 of 2 businesses :</p>
-            </div>
+           
             <div className="listing-card">
                 {
                     data.map((item, index) => {

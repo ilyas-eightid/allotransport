@@ -8,9 +8,6 @@ type Props = {
 
 export default function Card({ item }: Props) {
 
-    console.log(item);
-
-
     return (
         <>
             <div className="card border-light mb-3">
@@ -24,12 +21,12 @@ export default function Card({ item }: Props) {
                         </div>
                         <div>
                             <h3 className="card-title h5 mb-1">
-                                <Link className="text-black text-decoration-none" href={`/transport/${encodeURIComponent(item.slug)}`}>
+                                <Link className="text-black text-decoration-none" href={`/transports/${encodeURIComponent(item.slug)}`}>
                                     {item.Title}
                                 </Link>
                             </h3>
-                            <p className="mb-4">{item.Address}</p>
-                            <p className="mb-2 blockquote-footer">{item.Description}</p>
+                            <p className="mb-4">{item.Informations.Address}</p>
+                            <p className="mb-2 blockquote-footer">{item.About.substr(0, 200) + "..."}</p>
                         </div>
                     </div>
                 </div>
