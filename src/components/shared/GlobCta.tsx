@@ -1,12 +1,15 @@
 import { homeProps } from '@/interfaces/interface';
 import React from 'react'
+import BreadCrumbs from './breadCrumbs';
+
 
 type props = {
     data: any,
+    breadCrumbs: any
 }
 
 
-export default function GlobCta({ data }: props) {
+export default function GlobCta({ data, breadCrumbs }: props) {
     return (
         <>
             <div className="topbar bg-primary py-5">
@@ -30,6 +33,7 @@ export default function GlobCta({ data }: props) {
                     </div>
                 </div>
             </div>
+            <BreadCrumbs data={breadCrumbs} />
 
         </>
     )

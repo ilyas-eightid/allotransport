@@ -12,11 +12,27 @@ type props = {
 }
 
 
+
+
 export default function Index({ data, page }: props) {
+
+  const PAGE_BREADCRUNBS = [
+    {
+      id: 0,
+      link: "/",
+      label: "Accueil",
+    },
+    {
+      id: 1,
+      link: "/",
+      label: page.Title,
+    },
+  ];
+
 
   return (
     <>
-      <GlobCta data={page} />
+      <GlobCta data={page} breadCrumbs={PAGE_BREADCRUNBS} />
       <div className="container">
         <div className="py-0 py-xxl-5 my-5">
           <Content data={page} />

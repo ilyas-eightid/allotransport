@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import client from '../../apollo-client';
 import GlobalQuery from '@/queries/Global';
 import GetGloblProps from '@/functions/functions';
@@ -8,6 +8,8 @@ import Information from '@/components/shared/Information';
 import { useForm } from 'react-hook-form';
 import Inputs from '@/components/form/Inputs';
 import { sendContactForm } from '@/lib/email';
+import LoadingSpinner from '@/components/shared/LoadingSpinner';
+import Alert from '@/components/shared/Alert';
 
 type Props = {
   data: any,
@@ -18,18 +20,42 @@ type Props = {
 
 export default function contact({ data, page }: Props) {
 
+  const contactForm = useRef(null);
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSent, setIsSent] = useState(false);
 
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const { register, handleSubmit, watch, reset, formState: { errors, isSubmitSuccessful } } = useForm();
   const onSubmit = (FormData: any) => {
-    sendContactForm(FormData);
+    setIsLoading(true);
+
+    sendContactForm(FormData).then((res) => {
+      setIsLoading(false);
+      setIsSent(true);
+      contactForm.current?.reset();
+    }).catch((error) => {
+      setIsLoading(false);
+    });
+
   }
 
+  const  CONTACT_BREADCRUNBS = [
+    {
+      id: 0,
+      link: "/",
+      label: "Accueil",
+    },
+    {
+      id: 1,
+      link: "/",
+      label: page.Title,
+    },
+  ];
 
   return (
     <>
-      <GlobCta data={page} />
-
+    
+      <GlobCta data={page} breadCrumbs={CONTACT_BREADCRUNBS} />
       <div className="container">
         <div className="py-0 py-xxl-5 my-5">
           <div className="row">
@@ -48,7 +74,7 @@ export default function contact({ data, page }: Props) {
                   <p className="h4">{page.Form.Title}</p>
                   <p>{page.Form.SubTitle}</p>
                 </div>
-                <form onSubmit={handleSubmit(onSubmit)} encType='multipart/form-data'>
+                <form onSubmit={handleSubmit(onSubmit)} ref={contactForm} encType='multipart/form-data'>
                   <div className="row gy-3">
                     <div className="col-12 col-md-12">
                       <div className='row gy-3'>
@@ -59,12 +85,17 @@ export default function contact({ data, page }: Props) {
                       <p className="mb-0 small" dangerouslySetInnerHTML={{ __html: page.Form.RequiredTitle }}></p>
                     </div>
                     <div className="col-sm-12">
-                      <button type="submit" className="btn btn-warning" id="submit">{page.Form.Button.Title}</button>
+                      {isLoading ?
+                        <LoadingSpinner /> :
+                        <button type="submit" className="btn btn-warning" disabled={isLoading} id="submit">{page.Form.Button.Title}</button>}
                     </div>
                   </div>
                 </form>
+                {isSent ?
+                      <div className='col-sm-12'>
+                        <Alert Message={page.Form.SubmitSuccessfulMessage} />
+                      </div> : ''}
               </div>
-
             </div>
           </div>
         </div>
@@ -116,6 +147,7 @@ export async function getServerSideProps() {
                 Href
                 Type
               }
+              SubmitSuccessfulMessage
             }
           }
         }
