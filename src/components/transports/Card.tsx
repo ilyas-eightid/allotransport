@@ -16,7 +16,7 @@ export default function Card({ item }: Props) {
                         <div className="text-center w-50 me-3">
                             <Link className="text-black text-decoration-none" href={item.slug}>
                                 <Image alt={item.Title} width="106" height="106" className="img-fluid rounded-circle"
-                                    src={'http://127.0.0.1:1337' + item.seo.metaImage.data.attributes.url} />
+                                    src={process.env.STRAPI_PUBLIC_URL + item.seo.metaImage.data.attributes.url} />
                             </Link>
                         </div>
                         <div>

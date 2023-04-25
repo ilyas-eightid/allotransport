@@ -12,7 +12,7 @@ const Header = ({ data }: props) => {
     return (
         <>
             <Link className="logo d-flex align-items-center justify-content-center pt-3 d-md-none" href="/">
-                <Image alt="Allohonda - Annuaire des transports au Maroc" className="img-fluid" width="200" height="100" src={'http://127.0.0.1:1337' + data.Logo.data.attributes.url} />
+                <Image alt="Allohonda - Annuaire des transports au Maroc" className="img-fluid" width="200" height="100" src={process.env.STRAPI_PUBLIC_URL + data.Logo.data.attributes.url} />
             </Link>
             <header className="bg-white border-bottom sticky-top py-2">
                 <nav className="navbar navbar-light navbar-expand-xl">
@@ -23,11 +23,11 @@ const Header = ({ data }: props) => {
                             <i className="bi bi-list"></i>
                         </button>
                         <Link className="logo d-none me-auto ms-3 d-md-block d-xl-none" href="/">
-                            <Image alt="Allohonda - Annuaire des transports au Maroc" className="img-fluid" width="200" height="100" src={'http://127.0.0.1:1337' + data.Logo.data.attributes.url} />
+                            <Image alt="Allohonda - Annuaire des transports au Maroc" className="img-fluid" width="200" height="100" src={process.env.STRAPI_PUBLIC_URL + data.Logo.data.attributes.url} />
                         </Link>
                         <div className="collapse navbar-collapse">
                             <Link href="/" className="navbar-brand">
-                                <Image alt="Allohonda - Annuaire des transports au Maroc" className="img-fluid" width="200" height="100" src={'http://127.0.0.1:1337' + data.Logo.data.attributes.url} />
+                                <Image alt="Allohonda - Annuaire des transports au Maroc" className="img-fluid" width="200" height="100" src={process.env.STRAPI_PUBLIC_URL + data.Logo.data.attributes.url} />
                             </Link>
                             <Navbar Items={data.Menu} />
                         </div>

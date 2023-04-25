@@ -23,7 +23,7 @@ const Footer = ({ data }: props) => {
                             width: '279px',
                             position: 'relative'
                         }}>
-                            <Image className="img-fluid" layout="fill" objectFit="cover" alt={data.SubLogo} src={'http://127.0.0.1:1337' + data.FooterLogo.data.attributes.url} />
+                            <Image className="img-fluid" layout="fill" objectFit="cover" alt={data.SubLogo} src={process.env.STRAPI_PUBLIC_URL + data.FooterLogo.data.attributes.url} />
                         </Link>
                     </div>
                     <div className="footer-description pb-5">

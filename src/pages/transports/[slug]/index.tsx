@@ -64,7 +64,7 @@ export default function Index({ data, page, similars }: Props) {
                         <div className="col-12 col-lg-4 col-xl-3 order-1 order-lg-0 mt-5 mt-lg-0">
                             <div className="info-legal border border-light rounded p-4 mb-4">
                                 <div className="activity-logo mb-3">
-                                    <Image alt={page.Title} width="106" height="106" className="img-fluid w-100" src={'http://127.0.0.1:1337' + page.seo.metaImage.data.attributes.url} />
+                                    <Image alt={page.Title} width="106" height="106" className="img-fluid w-100" src={process.env.STRAPI_PUBLIC_URL + page.seo.metaImage.data.attributes.url} />
                                 </div>
                                 <h2 className="h6 mb-2">Informations</h2>
                                 <ul className="list-unstyled">
